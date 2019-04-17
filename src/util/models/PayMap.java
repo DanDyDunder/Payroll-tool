@@ -9,6 +9,7 @@ public class PayMap {
         this.externalName = externalName;
         this.cust_legacy = cust_legacy;
         this.cust_new = cust_new;
+
     }
 
     @Override
