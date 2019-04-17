@@ -1,10 +1,9 @@
 package util;
 
 import util.models.Employee;
-import util.models.PayMap;
+import util.models.ComparisonMap;
 
 import com.squareup.moshi.*;
-import okio.Buffer;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -20,11 +19,11 @@ public class JSONParser {
         try {
             Moshi moshi = new Moshi.Builder().build();
             json = SFJSONToProperJSON(input);
-            Type type = Types.newParameterizedType(List.class, PayMap.class);
-            JsonAdapter<List<PayMap>> adapter = moshi.adapter(type);
-            List<PayMap> maps = adapter.fromJson(json);
+            Type type = Types.newParameterizedType(List.class, ComparisonMap.class);
+            JsonAdapter<List<ComparisonMap>> adapter = moshi.adapter(type);
+            List<ComparisonMap> maps = adapter.fromJson(json);
 
-            for (PayMap map : maps) {
+            for (ComparisonMap map : maps) {
                 System.out.println(map);
             }
 

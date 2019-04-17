@@ -1,11 +1,11 @@
 package util.models;
 
-public class PayMap {
+public class ComparisonMap {
     public final String externalName;
     public final String cust_legacy;
     public final String cust_new;
 
-    public PayMap(String externalName, String cust_legacy, String cust_new) {
+    public ComparisonMap(String externalName, String cust_legacy, String cust_new) {
         this.externalName = externalName;
         this.cust_legacy = cust_legacy;
         this.cust_new = cust_new;
