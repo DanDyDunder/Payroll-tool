@@ -5,7 +5,7 @@
 "type": "SFOData.cust_gp_app_prc_cmt"
 },
 "externalCode": "413185",
-"externalName": "Pay Component",
+"runNumber": "Pay Component",
 "createdBy": "sfadmin",
 "cust_legacy": "1000",
 "lastModifiedBy": "sfadmin",
@@ -30,7 +30,7 @@
 "type": "SFOData.cust_gp_app_prc_cmt"
 },
 "externalCode": "413285",
-"externalName": "User ID",
+"runNumber": "User ID",
 "createdBy": "sfadmin",
 "cust_legacy": "123",
 "lastModifiedBy": "sfadmin",

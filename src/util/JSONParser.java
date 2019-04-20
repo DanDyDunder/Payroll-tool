@@ -1,6 +1,7 @@
 package util;
 
-import util.models.Employee;
+import util.models.EmployeeJsonAdapter;
+import util.models.EmployeeRecord;
 import util.models.ComparisonMap;
 
 import com.squareup.moshi.*;
@@ -33,19 +34,19 @@ public class JSONParser {
         }
     }
 
-    public static void parseEmployeeResult(String input) {
+    public static void parseEmployeeRecords(String input) {
         String json;
         try {
-            Moshi moshi = new Moshi.Builder().build();
+            Moshi moshi = new Moshi.Builder().add(new EmployeeJsonAdapter()).build();
             json = SFJSONToProperJSON(input);
-            Type type = Types.newParameterizedType(List.class, Employee.class);
-            JsonAdapter<List<Employee>> adapter = moshi.adapter(type);
-            List<Employee> employees = adapter.fromJson(json);
+            Type type = Types.newParameterizedType(List.class, EmployeeRecord.class);
+            JsonAdapter<List<EmployeeRecord>> adapter = moshi.adapter(type);
+            List<EmployeeRecord> employeeRecords = adapter.fromJson(json);
 
-            for (Employee employee : employees) {
-                System.out.println(employee);
+            for (EmployeeRecord employeeRecord : employeeRecords) {
+                System.out.println(employeeRecord);
             }
-            System.out.println("THIS IS THE AMOUNT: " + employees.size());
+            System.out.println("THIS IS THE AMOUNT: " + employeeRecords.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
