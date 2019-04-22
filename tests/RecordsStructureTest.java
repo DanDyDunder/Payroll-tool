@@ -1,21 +1,22 @@
 import org.junit.jupiter.api.*;
 import util.EmployeeHashMap;
 import util.models.EmployeeRecord;
+import util.models.RecordsStructure;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
-class EmployeeHashMapTest {
+class RecordsStructureTest {
 
-    private EmployeeHashMap eMap;
+    private RecordsStructure recordStructure;
     private EmployeeRecord e1;
     private EmployeeRecord e2;
     private EmployeeRecord e3;
 
     @BeforeEach
     void setUp() {
-        eMap = new EmployeeHashMap();
+        recordStructure = new EmployeeHashMap();
         e1 = new EmployeeRecord("1", "A", "001", "10", "1", "13", YearMonth.of(2019, 10), "DK", "source");
         e2 = new EmployeeRecord("1", "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
         e3 = new EmployeeRecord("2", "A", "002", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
@@ -23,7 +24,7 @@ class EmployeeHashMapTest {
 
     @AfterEach
     void tearDown() {
-        eMap = null;
+        recordStructure = null;
     }
 
     @Test
@@ -39,13 +40,13 @@ class EmployeeHashMapTest {
     @Test
     void putEmployeeRecord() {
         // Action
-        eMap.putEmployeeRecord(e1);
-        eMap.putEmployeeRecord(e2);
-        eMap.putEmployeeRecord(e3);
+        recordStructure.putEmployeeRecord(e1);
+        recordStructure.putEmployeeRecord(e2);
+        recordStructure.putEmployeeRecord(e3);
 
         // Get result
-        int resultAmountOfEmployees = eMap.countEmployees();
-        int resultAmountOfRecords = eMap.countTotalRecords();
+        int resultAmountOfEmployees = recordStructure.countEmployees();
+        int resultAmountOfRecords = recordStructure.countTotalRecords();
 
         Assertions.assertEquals(2, resultAmountOfEmployees);
         Assertions.assertEquals(3, resultAmountOfRecords);
@@ -57,11 +58,11 @@ class EmployeeHashMapTest {
         ArrayList<EmployeeRecord> employees = new ArrayList<>(List.of(e1, e2, e3));
 
         // Action
-        eMap.putManyEmployeeRecords(employees);
+        recordStructure.putManyEmployeeRecords(employees);
 
         // Get result
-        int resultAmountOfEmployees = eMap.countEmployees();
-        int resultAmountOfRecords = eMap.countTotalRecords();
+        int resultAmountOfEmployees = recordStructure.countEmployees();
+        int resultAmountOfRecords = recordStructure.countTotalRecords();
 
         Assertions.assertEquals(2, resultAmountOfEmployees);
         Assertions.assertEquals(3, resultAmountOfRecords);
@@ -89,12 +90,12 @@ class EmployeeHashMapTest {
 
 
         // Action
-        eMap.putManyEmployeeRecords(employees);
+        recordStructure.putManyEmployeeRecords(employees);
 
         // Get result
-        boolean resultContains001 = eMap.containsEmployee(sameEmployeeDifferentObjectE1);
-        boolean resultContains002 = eMap.containsEmployee(sameEmployeeDifferentObjectE3);
-        boolean containsFalseEmployee = eMap.containsEmployee(falseEmployeeRecord);
+        boolean resultContains001 = recordStructure.containsEmployee(sameEmployeeDifferentObjectE1);
+        boolean resultContains002 = recordStructure.containsEmployee(sameEmployeeDifferentObjectE3);
+        boolean containsFalseEmployee = recordStructure.containsEmployee(falseEmployeeRecord);
 
         Assertions.assertEquals(true, resultContains001);
         Assertions.assertEquals(true, resultContains002);
@@ -108,10 +109,10 @@ class EmployeeHashMapTest {
         EmployeeRecord sameEmployeeDifferentObjectE2 = new EmployeeRecord("1", "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
 
         // Action
-        eMap.putManyEmployeeRecords(employees);
+        recordStructure.putManyEmployeeRecords(employees);
 
         // Get result
-        boolean resultContainsRecord2 = eMap.containsEmployeeRecord(sameEmployeeDifferentObjectE2);
+        boolean resultContainsRecord2 = recordStructure.containsEmployeeRecord(sameEmployeeDifferentObjectE2);
 
         Assertions.assertEquals(true, resultContainsRecord2);
     }
