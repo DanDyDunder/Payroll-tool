@@ -34,14 +34,15 @@ public class JSONParser {
         }
     }
 
-    public static void parseEmployeeRecords(String input) {
+    public static List<EmployeeRecord> parseEmployeeRecords(String input) {
         String json;
+        List<EmployeeRecord> employeeRecords = null;
         try {
             Moshi moshi = new Moshi.Builder().add(new EmployeeJsonAdapter()).build();
             json = SFJSONToProperJSON(input);
             Type type = Types.newParameterizedType(List.class, EmployeeRecord.class);
             JsonAdapter<List<EmployeeRecord>> adapter = moshi.adapter(type);
-            List<EmployeeRecord> employeeRecords = adapter.fromJson(json);
+            employeeRecords = adapter.fromJson(json);
 
             for (EmployeeRecord employeeRecord : employeeRecords) {
                 System.out.println(employeeRecord);
@@ -50,6 +51,7 @@ public class JSONParser {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return employeeRecords;
     }
 
 }

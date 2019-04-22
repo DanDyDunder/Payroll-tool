@@ -1,4 +1,8 @@
+import util.EmployeeHashMap;
 import util.JSONParser;
+import util.models.EmployeeRecord;
+
+import java.util.List;
 
 public class Main {
 
@@ -12,6 +16,15 @@ public class Main {
         String mapjson = SuccessFactors.getJSONString("", mapurl);
         String employeejson = SuccessFactors.getJSONString("", employeeurl);
         JSONParser.parseComparisonMap(mapjson);
-        JSONParser.parseEmployeeRecords(employeejson);
+        List<EmployeeRecord> smth = JSONParser.parseEmployeeRecords(employeejson);
+        EmployeeHashMap map = new EmployeeHashMap();
+        map.putManyEmployeeRecords(smth);
+        System.out.println("COUNTS");
+        //TODO DUPLICATES ARE STORED AS ONE DUE TO RUN NUMBER AND DIFFERENT WAGE TYPES UNDER SAME MONTH
+        // fixed for wagetype as of now, so it returns 107
+
+        System.out.println(smth.size());
+        System.out.println(map.countEmployees());
+        System.out.println(map.countTotalRecords());
     }
 }

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3607b42-3d04-494b-88a7-57826e57df76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/EmployeeHashMapTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/json.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/json2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Payroll-tool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Payroll-tool.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/models/EmployeeJsonAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/models/EmployeeJsonAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/EmployeeHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/EmployeeHashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/JSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSONParser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,116 +19,54 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeRecordJson.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="34">
-                    <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-763">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeJsonAdapter.java">
+        <entry file="file://$PROJECT_DIR$/src/util/EmployeeHashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+            <state relative-caret-position="436">
+              <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2852#2853#0" expanded="true" />
+                <element signature="e#2885#2886#0" expanded="true" />
+                <element signature="e#2955#2956#0" expanded="true" />
+                <element signature="e#2991#2992#0" expanded="true" />
+                <element signature="e#3033#3034#0" expanded="true" />
+                <element signature="e#3075#3076#0" expanded="true" />
+                <element signature="e#3107#3108#0" expanded="true" />
+                <element signature="e#3143#3144#0" expanded="true" />
+                <element signature="e#3185#3186#0" expanded="true" />
+                <element signature="e#3227#3228#0" expanded="true" />
+                <element signature="e#4631#4632#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/time/YearMonth.java">
+        <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="1194" column="26" selection-start-line="1194" selection-start-column="18" selection-end-line="1194" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SuccessFactors.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="85" column="66" lean-forward="true" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+            <state relative-caret-position="181">
+              <caret line="1017" column="56" selection-start-line="1017" selection-start-column="49" selection-end-line="1017" selection-end-column="56" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#132657#132658#0" expanded="true" />
+                <element signature="e#132711#132712#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/JSONParser.java">
+        <entry file="file://$PROJECT_DIR$/tests/EmployeeHashMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+            <state relative-caret-position="269">
+              <caret line="106" column="78" selection-start-line="106" selection-start-column="78" selection-end-line="106" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#241#242#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/JsonAdapter.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/CollectionJsonAdapter.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/models/ComparisonMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,6 +77,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -151,7 +91,6 @@
       <find>runnum</find>
       <find>equals</find>
       <find>Calendar</find>
-      <find>date</find>
       <find>Calen</find>
       <find>Calend</find>
       <find>runnu</find>
@@ -160,6 +99,13 @@
       <find>tostring</find>
       <find>employeejson</find>
       <find>null</find>
+      <find>equal</find>
+      <find>002</find>
+      <find>date</find>
+      <find>get</find>
+      <find>lmao</find>
+      <find>hashcode</find>
+      <find>equals(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,17 +123,20 @@
         <option value="$PROJECT_DIR$/src/util/models/ComparisonResult.java" />
         <option value="$PROJECT_DIR$/src/util/models/ComparisonMap.java" />
         <option value="$PROJECT_DIR$/src/util/models/EmployeeRecordJson.java" />
-        <option value="$PROJECT_DIR$/src/util/EmployeeHashMap.java" />
         <option value="$PROJECT_DIR$/src/SuccessFactors.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/util/JSONParser.java" />
         <option value="$PROJECT_DIR$/src/util/models/EmployeeRecord.java" />
         <option value="$PROJECT_DIR$/src/util/models/EmployeeJsonAdapter.java" />
+        <option value="$PROJECT_DIR$/src/util/JSONParser.java" />
+        <option value="$PROJECT_DIR$/src/tests/EmployeeHashMapTest.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/tests/EmployeeHashMapTest.java" />
+        <option value="$PROJECT_DIR$/src/util/EmployeeHashMap.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
+    <option name="x" value="650" />
+    <option name="y" value="-15" />
     <option name="width" value="975" />
     <option name="height" value="1047" />
   </component>
@@ -196,17 +145,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Payroll-tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="Payroll-tool" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Payroll-tool" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Payroll-tool" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Payroll-tool" type="b2602c69:ProjectViewProjectNode" />
@@ -226,11 +171,15 @@
               <item name="util" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Payroll-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Payroll-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -242,6 +191,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -251,15 +203,22 @@
     <property name="project.structure.side.proportion" value="0.3816092" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Dandy\IdeaProjects\Payroll-tool\src" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="tests" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dandy\IdeaProjects\Payroll-tool" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="util.models" />
       <recent name="util" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Dandy\IdeaProjects\Payroll-tool" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dandy\IdeaProjects\Payroll-tool\tests" />
+      <recent name="C:\Users\Dandy\IdeaProjects\Payroll-tool\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -274,7 +233,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.EmployeeHashMapTest">
     <configuration name="JSONParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="util.JSONParser" />
       <module name="Payroll-tool" />
@@ -295,8 +254,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EmployeeHashMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Payroll-tool" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EmployeeHashMapTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeHashMapTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.JSONParser" />
       </list>
@@ -316,18 +285,52 @@
       <workItem from="1555362974999" duration="9099000" />
       <workItem from="1555459925530" duration="575000" />
       <workItem from="1555498308927" duration="5252000" />
-      <workItem from="1555718613775" duration="7398000" />
+      <workItem from="1555718613775" duration="7505000" />
+      <workItem from="1555765778406" duration="3180000" />
+      <workItem from="1555888883881" duration="4602000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 54m 53s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 56m 41s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 56m 59s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 57m 11s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 57m 28s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 02h 58m 31s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 03h 01m 00s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 03h 01m 09s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 03h 01m 24s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeHashMapTest - 2019.04.22 at 03h 01m 32s.xml">
+      <configuration name="EmployeeHashMapTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23315000" />
+    <option name="totallyTimeSpent" value="31204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13059701" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.084754795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -337,7 +340,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32502708" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -367,22 +370,10 @@
     <entry file="file://$PROJECT_DIR$/src/Ajax.java" />
     <entry file="file://$PROJECT_DIR$/src/utils/JSON.java" />
     <entry file="file://$PROJECT_DIR$/src/utils/Utils.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/HashMap.java" />
     <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/StringUTF16.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="268" column="26" selection-start-line="268" selection-start-column="26" selection-end-line="268" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="1018" column="52" lean-forward="true" selection-start-line="1018" selection-start-column="52" selection-end-line="1018" selection-end-column="52" />
-          <folding>
-            <element signature="e#132657#132658#0" expanded="true" />
-            <element signature="e#132711#132712#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -410,50 +401,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/EmployeeHashMap.java">
+    <entry file="file://$PROJECT_DIR$/input/json.txt" />
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/time/YearMonth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="17" column="66" lean-forward="true" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="66" />
+        <state relative-caret-position="17986">
+          <caret line="1194" column="26" selection-start-line="1194" selection-start-column="18" selection-end-line="1194" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SuccessFactors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="85" column="66" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/JsonAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/CollectionJsonAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/models/ComparisonMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input/json.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Payroll-tool.iml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SuccessFactors.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="85" column="66" lean-forward="true" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+        <state relative-caret-position="391">
+          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-763">
+        <state relative-caret-position="-737">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -461,45 +463,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/time/YearMonth.java">
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="1194" column="26" selection-start-line="1194" selection-start-column="18" selection-end-line="1194" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeRecordJson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/CollectionJsonAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/moshi/moshi/1.8.0/moshi-1.8.0.jar!/com/squareup/moshi/JsonAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="434">
+          <caret line="573" column="72" selection-start-line="573" selection-start-column="67" selection-end-line="573" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/JSONParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+        <state relative-caret-position="147">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -508,10 +482,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeJsonAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+        <state relative-caret-position="504">
+          <caret line="73" column="9" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeRecordJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/models/EmployeeRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/EmployeeHashMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="106" column="78" selection-start-line="106" selection-start-column="78" selection-end-line="106" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#241#242#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="1017" column="56" selection-start-line="1017" selection-start-column="49" selection-end-line="1017" selection-end-column="56" />
+          <folding>
+            <element signature="e#132657#132658#0" expanded="true" />
+            <element signature="e#132711#132712#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/EmployeeHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="128" column="31" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2885#2886#0" expanded="true" />
+            <element signature="e#2955#2956#0" expanded="true" />
+            <element signature="e#2991#2992#0" expanded="true" />
+            <element signature="e#3033#3034#0" expanded="true" />
+            <element signature="e#3075#3076#0" expanded="true" />
+            <element signature="e#3107#3108#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3227#3228#0" expanded="true" />
+            <element signature="e#4631#4632#0" expanded="true" />
           </folding>
         </state>
       </provider>
