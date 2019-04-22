@@ -56,9 +56,7 @@ public class ComparisonMap implements IComparisonMap{
     }
 
     public boolean containsMapping(ComparisonMapRecord comparisonMapRecord) {
-        switch (comparisonMapRecord.externalName) {
-            case "måske skal det her være en enum i stedet for string?":
-                return false;
+        switch (comparisonMapRecord.mapType) {
             default:
                 return true;
         }

@@ -1,20 +1,36 @@
 package util.models;
 
 public class ComparisonMapRecord {
-    public final String externalName;
-    public final String cust_legacy;
-    public final String cust_new;
+    public final MapType mapType;
+    public final String sourceValue;
+    public final String targetValue;
 
-    public ComparisonMapRecord(String externalName, String cust_legacy, String cust_new) {
-        this.externalName = externalName;
-        this.cust_legacy = cust_legacy;
-        this.cust_new = cust_new;
+    public ComparisonMapRecord(String mapType, String sourceValue, String targetValue) {
+        this.mapType = stringToMapType(mapType);
+        this.sourceValue = sourceValue;
+        this.targetValue = targetValue;
 
+    }
+
+    private MapType stringToMapType(String mapType) {
+        switch (mapType){
+            case "Company Code":
+                return MapType.CompanyCode;
+            case "Pay Component":
+                return MapType.PayType;
+            case "User ID":
+                return MapType.UserID;
+        }
+        return MapType.Error;
     }
 
     @Override
     public String toString() {
-        return String.format("External name: %s\nLegacy value: %s\nNew value: %s", externalName, cust_legacy, cust_new);
+        return String.format("Map type: %s\nLegacy value: %s\nTarget value: %s", mapType, sourceValue, targetValue);
 
+    }
+
+    public enum MapType {
+        CompanyCode, PayType, UserID, Error;
     }
 }

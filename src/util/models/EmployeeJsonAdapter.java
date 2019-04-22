@@ -10,7 +10,7 @@ import java.time.YearMonth;
 public class EmployeeJsonAdapter {
 
     @FromJson
-    EmployeeRecord eventFromJson(EmployeeRecordJson erJSON) {
+    EmployeeRecord employeeRecordFromJson(EmployeeRecordJson erJSON) {
 
         YearMonth date = textDateToDate(erJSON.cust_payPeriod);
         return new EmployeeRecord(
@@ -20,7 +20,7 @@ public class EmployeeJsonAdapter {
     }
 
     @ToJson
-    EmployeeRecordJson eventToJson(EmployeeRecord employeeRecord) {
+    EmployeeRecordJson employeeRecordToJson(EmployeeRecord employeeRecord) {
         return new EmployeeRecordJson(
                 employeeRecord.runNumber, employeeRecord.costCenter, employeeRecord.userId,
                 employeeRecord.amtpernum, employeeRecord.wageType, employeeRecord.companyCode,

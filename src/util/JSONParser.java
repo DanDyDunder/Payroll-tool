@@ -1,5 +1,6 @@
 package util;
 
+import util.models.ComparisonMapJsonAdapter;
 import util.models.EmployeeJsonAdapter;
 import util.models.EmployeeRecord;
 import util.models.ComparisonMapRecord;
@@ -18,7 +19,7 @@ public class JSONParser {
     public static void parseComparisonMap(String input) {
         String json;
         try {
-            Moshi moshi = new Moshi.Builder().build();
+            Moshi moshi = new Moshi.Builder().add(new ComparisonMapJsonAdapter()).build();
             json = SFJSONToProperJSON(input);
             Type type = Types.newParameterizedType(List.class, ComparisonMapRecord.class);
             JsonAdapter<List<ComparisonMapRecord>> adapter = moshi.adapter(type);
