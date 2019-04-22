@@ -80,7 +80,7 @@ class IRecordsStructureTest {
         recordStructure.putEmployeeRecord(e1);
         Error thrown = Assertions.assertThrows(Error.class, () -> recordStructure.putEmployeeRecord(e1), "Same record inserted twice, redundancy in JSON not detected");
 
-        Assertions.assertTrue(thrown.getMessage().contains("THINK"));
+        Assertions.assertTrue(thrown.getMessage().contains("Redundancy"));
     }
 
     @Test

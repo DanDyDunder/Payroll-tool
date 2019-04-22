@@ -14,11 +14,11 @@ public class EmployeeRecord {
     public final YearMonth payPeriod;
     public final String payrollArea;
     // Maybe refactor this to enum
-    public final String sourcetarget;
+    public final SourceTarget sourceTarget;
 
     public EmployeeRecord(String runNumber, String costCenter, String userId,
                           String amtpernum, String wageType, String companyCode,
-                          YearMonth payPeriod, String payrollArea, String sourcetarget) {
+                          YearMonth payPeriod, String payrollArea, String sourceTarget) {
         this.runNumber = runNumber;
         this.costCenter = costCenter;
         this.userId = userId;
@@ -27,7 +27,21 @@ public class EmployeeRecord {
         this.companyCode = companyCode;
         this.payPeriod = payPeriod;
         this.payrollArea = payrollArea;
-        this.sourcetarget = sourcetarget;
+        this.sourceTarget = stringToSourceTarget(sourceTarget);
+    }
+
+    private SourceTarget stringToSourceTarget(String sourcetarget) {
+        switch (sourcetarget) {
+            case "Source":
+                return SourceTarget.SOURCE;
+            case "Target":
+                return SourceTarget.TARGET;
+        }
+        return SourceTarget.ERROR;
+    }
+
+    public enum SourceTarget {
+        SOURCE, TARGET, ERROR;
     }
 
     @Override
@@ -35,6 +49,6 @@ public class EmployeeRecord {
         return String.format("External name: %s\nCost center: %s\nUser id: %s\nAmount/Percentage/Number: %s\n" +
                 "Wage type: %s\nCompany code: %s\nPay period: %s\nPayroll Area: %s\nSource or target: %s",
                 runNumber, costCenter, userId, amtpernum, wageType, companyCode,
-                payPeriod, payrollArea, sourcetarget);
+                payPeriod, payrollArea, sourceTarget);
     }
 }

@@ -1,4 +1,4 @@
-package util.models;
+package util.models.JSON;
 
 public class EmployeeRecordJson {
     public final String externalName;

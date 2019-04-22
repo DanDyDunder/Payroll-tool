@@ -20,17 +20,18 @@ public class ComparisonMapRecord {
                 return MapType.PayType;
             case "User ID":
                 return MapType.UserID;
+            default:
+                throw new Error(String.format("Invalid mapping type: %s", mapType));
         }
-        return MapType.Error;
+    }
+
+    public enum MapType {
+        CompanyCode, PayType, UserID;
     }
 
     @Override
     public String toString() {
         return String.format("Map type: %s\nLegacy value: %s\nTarget value: %s", mapType, sourceValue, targetValue);
 
-    }
-
-    public enum MapType {
-        CompanyCode, PayType, UserID, Error;
     }
 }

@@ -160,4 +160,22 @@ class IComparisonMapTest {
 
         Assertions.assertEquals(8, resultTotalCount);
     }
+
+    @Test
+    void containsMapping() {
+        // Initialize
+        List<ComparisonMapRecord> mappings = new ArrayList<>(List.of(id1, pay1, company1));
+
+        // Action
+        comparisonMap.putManyComparisonMappings(mappings);
+
+        // Result
+        boolean containsId1Pay1Company1 = comparisonMap.containsMapping(id1)
+                                          && comparisonMap.containsMapping(pay1)
+                                          && comparisonMap.containsMapping(company1);
+        boolean containsId2 = comparisonMap.containsMapping(id2);
+
+        Assertions.assertTrue(containsId1Pay1Company1);
+        Assertions.assertFalse(containsId2);
+    }
 }

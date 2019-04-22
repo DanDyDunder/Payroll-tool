@@ -1,7 +1,9 @@
-package util.models;
+package util.models.JSON;
 
 import com.squareup.moshi.FromJson;
 import com.squareup.moshi.ToJson;
+import util.models.ComparisonMapRecord;
+import util.models.JSON.ComparisonMapJson;
 
 
 public class ComparisonMapJsonAdapter {

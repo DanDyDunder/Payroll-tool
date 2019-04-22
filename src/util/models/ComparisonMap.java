@@ -24,7 +24,21 @@ public class ComparisonMap implements IComparisonMap{
     }
 
     public void putComparisonMapping(ComparisonMapRecord comparisonMapRecord) {
-
+        String key = comparisonMapRecord.sourceValue;
+        String value = comparisonMapRecord.targetValue;
+        switch (comparisonMapRecord.mapType) {
+            case CompanyCode:
+                companyCodeMap.put(key, value);
+                break;
+            case PayType:
+                payTypeMap.put(key, value);
+                break;
+            case UserID:
+                idMap.put(key, value);
+                break;
+            default:
+                throw new Error("Invalid mapping type");
+        }
     }
 
     public int countPayTypeMappings() {
@@ -56,9 +70,16 @@ public class ComparisonMap implements IComparisonMap{
     }
 
     public boolean containsMapping(ComparisonMapRecord comparisonMapRecord) {
+        String key = comparisonMapRecord.sourceValue;
         switch (comparisonMapRecord.mapType) {
+            case CompanyCode:
+                return containsCompanyCodeMapping(key);
+            case PayType:
+                return containsPayTypeMapping(key);
+            case UserID:
+                return containsIdMapping(key);
             default:
-                return true;
+                return false;
         }
     }
 }

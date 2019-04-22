@@ -1,7 +1,7 @@
 package util;
 
-import util.models.ComparisonMapJsonAdapter;
-import util.models.EmployeeJsonAdapter;
+import util.models.JSON.ComparisonMapJsonAdapter;
+import util.models.JSON.EmployeeJsonAdapter;
 import util.models.EmployeeRecord;
 import util.models.ComparisonMapRecord;
 

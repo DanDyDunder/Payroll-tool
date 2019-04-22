@@ -1,7 +1,8 @@
-package util.models;
+package util.models.JSON;
 
 import com.squareup.moshi.FromJson;
 import com.squareup.moshi.ToJson;
+import util.models.EmployeeRecord;
 
 import java.time.Month;
 import java.time.YearMonth;
@@ -24,7 +25,7 @@ public class EmployeeJsonAdapter {
         return new EmployeeRecordJson(
                 employeeRecord.runNumber, employeeRecord.costCenter, employeeRecord.userId,
                 employeeRecord.amtpernum, employeeRecord.wageType, employeeRecord.companyCode,
-                employeeRecord.payPeriod.toString(), employeeRecord.payrollArea, employeeRecord.sourcetarget);
+                employeeRecord.payPeriod.toString(), employeeRecord.payrollArea, employeeRecord.sourceTarget.toString());
     }
 
     public static YearMonth textDateToDate(String textDate) {
