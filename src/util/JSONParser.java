@@ -2,7 +2,7 @@ package util;
 
 import util.models.EmployeeJsonAdapter;
 import util.models.EmployeeRecord;
-import util.models.ComparisonMap;
+import util.models.ComparisonMapRecord;
 
 import com.squareup.moshi.*;
 
@@ -20,11 +20,11 @@ public class JSONParser {
         try {
             Moshi moshi = new Moshi.Builder().build();
             json = SFJSONToProperJSON(input);
-            Type type = Types.newParameterizedType(List.class, ComparisonMap.class);
-            JsonAdapter<List<ComparisonMap>> adapter = moshi.adapter(type);
-            List<ComparisonMap> maps = adapter.fromJson(json);
+            Type type = Types.newParameterizedType(List.class, ComparisonMapRecord.class);
+            JsonAdapter<List<ComparisonMapRecord>> adapter = moshi.adapter(type);
+            List<ComparisonMapRecord> maps = adapter.fromJson(json);
 
-            for (ComparisonMap map : maps) {
+            for (ComparisonMapRecord map : maps) {
                 System.out.println(map);
             }
 

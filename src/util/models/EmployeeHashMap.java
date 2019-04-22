@@ -1,15 +1,14 @@
-package util;
+package util.models;
 
+import util.Tuple;
 import util.models.EmployeeRecord;
-import util.models.RecordsStructure;
+import util.models.IRecordsStructure;
 
 import java.time.YearMonth;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-public class EmployeeHashMap implements RecordsStructure {
+public class EmployeeHashMap implements IRecordsStructure {
     // INSERT USER ID INTO ANOTHER HASHMAP THAT CONTAINS ALL RECORDS OF AN EMPLOYEE FOR EVERY MONTH, Currently date is stored as string instead of date
     // Since UserId can be a string aswell, we have to use string for the first hashmap.
     private HashMap<String, HashMap<Tuple<YearMonth, String>, EmployeeRecord>> employeeMap = new HashMap<>();
@@ -34,6 +33,7 @@ public class EmployeeHashMap implements RecordsStructure {
     }
 
     private void putEmployeeRecord(String id, YearMonth date, String wageType, EmployeeRecord employeeRecord) {
+        if (containsEmployeeRecord(employeeRecord)) throw new Error("THINK ABOUT IT");
         if (!employeeMap.containsKey(id)) employeeMap.put(id, new HashMap<>());
         HashMap<Tuple<YearMonth, String>, EmployeeRecord> employeeRecords = employeeMap.get(id);
         employeeRecords.put(tuple(date, wageType), employeeRecord);
@@ -45,6 +45,10 @@ public class EmployeeHashMap implements RecordsStructure {
 
     public int countEmployeeRecords(String id) {
         return employeeMap.get(id).size();
+    }
+
+    public int countEmployeeRecords(EmployeeRecord employeeRecord) {
+        return countEmployeeRecords(employeeRecord.userId);
     }
 
     public int countEmployees() {

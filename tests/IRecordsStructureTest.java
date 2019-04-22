@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.*;
-import util.EmployeeHashMap;
+import util.models.EmployeeHashMap;
 import util.models.EmployeeRecord;
-import util.models.RecordsStructure;
+import util.models.IRecordsStructure;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
-class RecordsStructureTest {
+class IRecordsStructureTest {
 
-    private RecordsStructure recordStructure;
+    private IRecordsStructure recordStructure;
     private EmployeeRecord e1;
     private EmployeeRecord e2;
     private EmployeeRecord e3;
@@ -29,12 +29,31 @@ class RecordsStructureTest {
 
     @Test
     void getEmployeeRecord() {
+        // Initialize
+        ArrayList<EmployeeRecord> employees = new ArrayList<>(List.of(e1, e2, e3));
 
+        // Action
+        recordStructure.putManyEmployeeRecords(employees);
+
+        // Get result
+        int resultAmountOf001Records = recordStructure.countEmployeeRecords(e1);
+
+        Assertions.assertEquals(2, resultAmountOf001Records);
 
     }
 
     @Test
     void getEmployeeMapOfAllRecords() {
+        // Initialize
+        ArrayList<EmployeeRecord> employees = new ArrayList<>(List.of(e1, e2, e3));
+
+        // Action
+        recordStructure.putManyEmployeeRecords(employees);
+
+        // Get result
+        int resultAmountOfRecords = recordStructure.countTotalRecords();
+
+        Assertions.assertEquals(3, resultAmountOfRecords);
     }
 
     @Test
@@ -46,10 +65,22 @@ class RecordsStructureTest {
 
         // Get result
         int resultAmountOfEmployees = recordStructure.countEmployees();
+        int resultAmountOf001Records = recordStructure.countEmployeeRecords(e1);
+
         int resultAmountOfRecords = recordStructure.countTotalRecords();
 
+        Assertions.assertEquals(2, resultAmountOf001Records);
         Assertions.assertEquals(2, resultAmountOfEmployees);
         Assertions.assertEquals(3, resultAmountOfRecords);
+    }
+
+    @Test
+    void putEmployeeThrowsException() {
+        // Action
+        recordStructure.putEmployeeRecord(e1);
+        Error thrown = Assertions.assertThrows(Error.class, () -> recordStructure.putEmployeeRecord(e1), "Same record inserted twice, redundancy in JSON not detected");
+
+        Assertions.assertTrue(thrown.getMessage().contains("THINK"));
     }
 
     @Test
@@ -62,22 +93,12 @@ class RecordsStructureTest {
 
         // Get result
         int resultAmountOfEmployees = recordStructure.countEmployees();
+        int resultAmountOf001Records = recordStructure.countEmployeeRecords(e1);
         int resultAmountOfRecords = recordStructure.countTotalRecords();
 
+        Assertions.assertEquals(2, resultAmountOf001Records);
         Assertions.assertEquals(2, resultAmountOfEmployees);
         Assertions.assertEquals(3, resultAmountOfRecords);
-    }
-
-    @Test
-    void countEmployeeRecords() {
-    }
-
-    @Test
-    void countEmployees() {
-    }
-
-    @Test
-    void countTotalRecords() {
     }
 
     @Test

@@ -13,6 +13,7 @@ public class EmployeeRecord {
     public final String companyCode;
     public final YearMonth payPeriod;
     public final String payrollArea;
+    // Maybe refactor this to enum
     public final String sourcetarget;
 
     public EmployeeRecord(String runNumber, String costCenter, String userId,

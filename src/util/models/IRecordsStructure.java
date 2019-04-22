@@ -6,7 +6,7 @@ import java.time.YearMonth;
 import java.util.HashMap;
 import java.util.List;
 
-public interface RecordsStructure {
+public interface IRecordsStructure {
     EmployeeRecord getEmployeeRecord(EmployeeRecord employeeRecord);
     HashMap<Tuple<YearMonth, String>, EmployeeRecord> getAllRecordsOfEmployee(EmployeeRecord employeeRecord);
     void putEmployeeRecord(EmployeeRecord employeeRecord);
@@ -15,7 +15,7 @@ public interface RecordsStructure {
             putEmployeeRecord(employeeRecord);
         }
     }
-    int countEmployeeRecords(String id);
+    int countEmployeeRecords(EmployeeRecord employeeRecord);
     int countEmployees();
     int countTotalRecords();
     boolean containsEmployee(EmployeeRecord employeeRecord);

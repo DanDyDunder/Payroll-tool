@@ -1,20 +1,66 @@
 package util.models;
 
-public class ComparisonMap {
-    public final String externalName;
-    public final String cust_legacy;
-    public final String cust_new;
+import java.util.HashMap;
 
-    public ComparisonMap(String externalName, String cust_legacy, String cust_new) {
-        this.externalName = externalName;
-        this.cust_legacy = cust_legacy;
-        this.cust_new = cust_new;
+// In the maps, the keys are source-fields, wheras values are target-fields
+public class ComparisonMap implements IComparisonMap{
+    private HashMap<String, String> idMap = new HashMap<>();
+    private HashMap<String, String> payTypeMap = new HashMap<>();
+    private HashMap<String, String> companyCodeMap = new HashMap<>();
+
+    public ComparisonMap() {
+    }
+
+    public String getPayTypeMapping(String payTypeMapping) {
+        return payTypeMap.get(payTypeMapping);
+    }
+
+    public String getIdMapping(String idMapping) {
+        return idMap.get(idMapping);
+    }
+
+    public String getCompanyCodeMapping(String companyCodeMapping) {
+        return companyCodeMap.get(companyCodeMapping);
+    }
+
+    public void putComparisonMapping(ComparisonMapRecord comparisonMapRecord) {
 
     }
 
-    @Override
-    public String toString() {
-        return String.format("External name: %s\nLegacy value: %s\nNew value: %s", externalName, cust_legacy, cust_new);
+    public int countPayTypeMappings() {
+        return payTypeMap.size();
+    }
 
+    public int countIdMappings() {
+        return idMap.size();
+    }
+
+    public int countCompanyCodeMappings() {
+        return companyCodeMap.size();
+    }
+
+    public int countTotalMappings() {
+        return countCompanyCodeMappings()+countIdMappings()+countPayTypeMappings();
+    }
+
+    public boolean containsPayTypeMapping(String payTypeMapping) {
+        return payTypeMap.containsKey(payTypeMapping);
+    }
+
+    public boolean containsIdMapping(String idMapping) {
+        return idMap.containsKey(idMapping);
+    }
+
+    public boolean containsCompanyCodeMapping(String companyCodeMapping) {
+        return companyCodeMap.containsKey(companyCodeMapping);
+    }
+
+    public boolean containsMapping(ComparisonMapRecord comparisonMapRecord) {
+        switch (comparisonMapRecord.externalName) {
+            case "måske skal det her være en enum i stedet for string?":
+                return false;
+            default:
+                return true;
+        }
     }
 }

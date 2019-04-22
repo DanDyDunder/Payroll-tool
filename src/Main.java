@@ -1,4 +1,4 @@
-import util.EmployeeHashMap;
+import util.models.EmployeeHashMap;
 import util.JSONParser;
 import util.models.EmployeeRecord;
 
@@ -20,7 +20,7 @@ public class Main {
         EmployeeHashMap map = new EmployeeHashMap();
         map.putManyEmployeeRecords(smth);
         System.out.println("COUNTS");
-        //TODO DUPLICATES ARE STORED AS ONE DUE TO RUN NUMBER AND DIFFERENT WAGE TYPES UNDER SAME MONTH
+        // TODO DUPLICATES ARE STORED AS ONE DUE TO RUN NUMBER AND DIFFERENT WAGE TYPES UNDER SAME MONTH
         // fixed for wagetype as of now, so it returns 107
 
         System.out.println(smth.size());
