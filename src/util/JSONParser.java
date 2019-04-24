@@ -1,5 +1,6 @@
 package util;
 
+import util.models.ComparisonResult;
 import util.models.JSON.ComparisonMapJsonAdapter;
 import util.models.JSON.EmployeeJsonAdapter;
 import util.models.EmployeeRecord;
@@ -7,6 +8,7 @@ import util.models.ComparisonMapRecord;
 
 import com.squareup.moshi.*;
 import util.models.JSON.RunResultJson;
+import util.models.JSON.RunResultJsonAdapter;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -73,4 +75,16 @@ public class JSONParser {
         }
     }
 
+    public static void runResultToJson(List<ComparisonResult> cResults) {
+        try {
+            Moshi moshi = new Moshi.Builder().add(new RunResultJsonAdapter()).build();
+            Type type = Types.newParameterizedType(List.class, ComparisonResult.class);
+            JsonAdapter<List<ComparisonResult>> adapter = moshi.adapter(type);
+            String result = adapter.toJson(cResults);
+
+            System.out.println(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

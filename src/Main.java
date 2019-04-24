@@ -39,16 +39,16 @@ public class Main {
 
         Comparer comparer = new Comparer(smth, comparisonMap);
         var lst = comparer.getRecordsPerRun();
-
+/*
         System.out.println("Size of runlist: " + lst.size());
         System.out.println("Amount of records in run 1 of source" + lst.get(0).item1.countTotalRecords());
         System.out.println("Amount of records in run 1 of target" + lst.get(0).item2.countTotalRecords());
         System.out.println("Amount of records in run 2 of source" + lst.get(1).item1.countTotalRecords());
         System.out.println("Amount of records in run 2 of target" + lst.get(1).item2.countTotalRecords());
         System.out.println(lst.get(0).item1.countTotalRecords()+lst.get(0).item2.countTotalRecords()+lst.get(1).item1.countTotalRecords()+lst.get(1).item2.countTotalRecords());
-
-        var elseff = comparer.compareRun(lst.get(0));
-        System.out.println(elseff);
-
+*/
+        var elseff = comparer.generateComparisonResults(lst.get(0));
+       JSONParser.runResultToJson(elseff.item1);
+        System.out.println(elseff.item2);
     }
 }

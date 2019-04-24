@@ -17,15 +17,18 @@ public class ComparisonMap implements IComparisonMap{
     }
 
     public String getPayTypeMapping(String payTypeMapping) {
-        return payTypeMap.get(payTypeMapping);
+        if(payTypeMap.containsKey(payTypeMapping)) return payTypeMap.get(payTypeMapping);
+        return payTypeMapping;
     }
 
     public String getIdMapping(String idMapping) {
-        return idMap.get(idMapping);
+        if (idMap.containsKey(idMapping)) return idMap.get(idMapping);
+        return idMapping;
     }
 
     public String getCompanyCodeMapping(String companyCodeMapping) {
-        return companyCodeMap.get(companyCodeMapping);
+        if (companyCodeMap.containsKey(companyCodeMapping)) return companyCodeMap.get(companyCodeMapping);
+        return companyCodeMapping;
     }
 
     public void putComparisonMapping(ComparisonMapRecord comparisonMapRecord) {

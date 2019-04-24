@@ -39,7 +39,7 @@ public class EmployeeHashMap implements IRecordsStructure {
     }
 
     private void putEmployeeRecord(String id, YearMonth date, String wageType, EmployeeRecord employeeRecord) {
-        if (containsEmployeeRecord(employeeRecord)) throw new Error("Redundancy");
+        if (containsEmployeeRecord(employeeRecord)) throw new Error("Duplicate");
         if (!employeeMap.containsKey(id)) employeeMap.put(id, new HashMap<>());
         HashMap<Tuple<YearMonth, String>, EmployeeRecord> employeeRecords = employeeMap.get(id);
         employeeRecords.put(tuple(date, wageType), employeeRecord);

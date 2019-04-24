@@ -12,6 +12,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.time.Month;
+import java.time.YearMonth;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,6 +85,54 @@ public class Utils {
             }
         }
         return sb.toString();
+    }
+
+    public static YearMonth textDateToDate(String textDate) {
+        String[] yearAndMonth = textDate.split(" ");
+        int year = Integer.parseInt(yearAndMonth[1]);
+        Month month;
+        switch ((yearAndMonth[0]).toLowerCase()) {
+            case "januar":
+            case "january":
+                month = Month.JANUARY;
+                break;
+            case "february":
+                month = Month.FEBRUARY;
+                break;
+            case "march":
+                month = Month.MARCH;
+                break;
+            case "april":
+                month = Month.APRIL;
+                break;
+            case "may":
+                month = Month.MAY;
+                break;
+            case "june":
+                month = Month.JUNE;
+                break;
+            case "july":
+                month = Month.JULY;
+                break;
+            case "august":
+                month = Month.AUGUST;
+                break;
+            case "september":
+                month = Month.SEPTEMBER;
+                break;
+            case "october":
+                month = Month.OCTOBER;
+                break;
+            case "november":
+                month = Month.NOVEMBER;
+                break;
+            case "december":
+                month = Month.DECEMBER;
+                break;
+            default:
+                return null;
+        }
+        return YearMonth.of(year, month);
     }
 
 }

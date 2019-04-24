@@ -5,12 +5,17 @@ import com.squareup.moshi.ToJson;
 import util.models.ComparisonMapRecord;
 import util.models.ComparisonResult;
 
+import static util.Utils.textDateToDate;
+
 public class RunResultJsonAdapter {
     @FromJson
     ComparisonResult ComparisonResultFromJson(RunResultJson rresultJSON) {
 
         return new ComparisonResult(
-                rresultJSON.externalName,
+                Integer.parseInt(rresultJSON.externalName),
+                rresultJSON.cust_userIdSource,
+                rresultJSON.cust_userIdTarget,
+                textDateToDate(rresultJSON.cust_payPeriod),
                 Double.parseDouble(rresultJSON.cust_amtpernumSource),
                 Double.parseDouble(rresultJSON.cust_amtpernumTarget),
                 Double.parseDouble(rresultJSON.cust_deviation),
@@ -23,7 +28,10 @@ public class RunResultJsonAdapter {
     @ToJson
     RunResultJson ComparisonResultToJson(ComparisonResult result) {
         return new RunResultJson(
-                result.userId,
+                Integer.toString(result.runNumber),
+                result.userIdSource,
+                result.userIdTarget,
+                result.payPeriod.toString(),
                 Double.toString(result.amtpernumSource),
                 Double.toString(result.amtpernumTarget),
                 Double.toString(result.deviation),
