@@ -9,6 +9,7 @@ import java.util.List;
 public interface IRecordsStructure {
     EmployeeRecord getEmployeeRecord(EmployeeRecord employeeRecord);
     HashMap<Tuple<YearMonth, String>, EmployeeRecord> getAllRecordsOfEmployee(EmployeeRecord employeeRecord);
+    List<String> getAllEmployeeIds();
     void putEmployeeRecord(EmployeeRecord employeeRecord);
     default void putManyEmployeeRecords(List<EmployeeRecord> employeeRecords) {
         for (EmployeeRecord employeeRecord : employeeRecords) {

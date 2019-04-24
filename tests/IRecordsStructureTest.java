@@ -17,9 +17,9 @@ class IRecordsStructureTest {
     @BeforeEach
     void setUp() {
         recordStructure = new EmployeeHashMap();
-        e1 = new EmployeeRecord("1", "A", "001", "10", "1", "13", YearMonth.of(2019, 10), "DK", "source");
-        e2 = new EmployeeRecord("1", "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
-        e3 = new EmployeeRecord("2", "A", "002", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
+        e1 = new EmployeeRecord(1, "A", "001", "10", "1", "13", YearMonth.of(2019, 10), "DK", "source");
+        e2 = new EmployeeRecord(1, "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
+        e3 = new EmployeeRecord(2, "A", "002", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
     }
 
     @AfterEach
@@ -105,9 +105,9 @@ class IRecordsStructureTest {
     void containsEmployee() {
         // Initialize
         ArrayList<EmployeeRecord> employees = new ArrayList<>(List.of(e1, e2, e3));
-        EmployeeRecord sameEmployeeDifferentObjectE1 = new EmployeeRecord("1", "A", "001", "10", "1", "13", YearMonth.of(2019, 10), "DK", "source");
-        EmployeeRecord sameEmployeeDifferentObjectE3 = new EmployeeRecord("2", "A", "002", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
-        EmployeeRecord falseEmployeeRecord = new EmployeeRecord("2", "A", "005", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
+        EmployeeRecord sameEmployeeDifferentObjectE1 = new EmployeeRecord(1, "A", "001", "10", "1", "13", YearMonth.of(2019, 10), "DK", "source");
+        EmployeeRecord sameEmployeeDifferentObjectE3 = new EmployeeRecord(2, "A", "002", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
+        EmployeeRecord falseEmployeeRecord = new EmployeeRecord(2, "A", "005", "10", "1", "13", YearMonth.of(2019, 12), "DK", "target");
 
 
         // Action
@@ -127,7 +127,7 @@ class IRecordsStructureTest {
     void containsEmployeeRecord() {
         // Initialize
         ArrayList<EmployeeRecord> employees = new ArrayList<>(List.of(e1, e2, e3));
-        EmployeeRecord sameEmployeeDifferentObjectE2 = new EmployeeRecord("1", "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
+        EmployeeRecord sameEmployeeDifferentObjectE2 = new EmployeeRecord(1, "A", "001", "50", "2", "13", YearMonth.of(2019, 11), "DK", "source");
 
         // Action
         recordStructure.putManyEmployeeRecords(employees);

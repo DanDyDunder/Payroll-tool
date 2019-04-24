@@ -15,16 +15,22 @@ public class EmployeeJsonAdapter {
 
         YearMonth date = textDateToDate(erJSON.cust_payPeriod);
         return new EmployeeRecord(
-                erJSON.externalName, erJSON.cust_costCenter, erJSON.cust_userId,
-                erJSON.cust_amtpernum, erJSON.cust_wageType, erJSON.cust_companyCode,
-                date, erJSON.cust_payrollArea,erJSON.cust_sourcetarget);
+                Integer.parseInt(erJSON.externalName),
+                erJSON.cust_costCenter,
+                erJSON.cust_userId,
+                erJSON.cust_amtpernum,
+                erJSON.cust_wageType,
+                erJSON.cust_companyCode,
+                date,
+                erJSON.cust_payrollArea,
+                erJSON.cust_sourcetarget);
     }
 
     @ToJson
     EmployeeRecordJson employeeRecordToJson(EmployeeRecord employeeRecord) {
         return new EmployeeRecordJson(
-                employeeRecord.runNumber, employeeRecord.costCenter, employeeRecord.userId,
-                employeeRecord.amtpernum, employeeRecord.wageType, employeeRecord.companyCode,
+                Integer.toString(employeeRecord.runNumber), employeeRecord.costCenter, employeeRecord.userId,
+                Double.toString(employeeRecord.amtpernum), employeeRecord.wageType, employeeRecord.companyCode,
                 employeeRecord.payPeriod.toString(), employeeRecord.payrollArea, employeeRecord.sourceTarget.toString());
     }
 

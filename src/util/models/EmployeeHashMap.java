@@ -5,31 +5,37 @@ import util.models.EmployeeRecord;
 import util.models.IRecordsStructure;
 
 import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EmployeeHashMap implements IRecordsStructure {
-    // INSERT USER ID INTO ANOTHER HASHMAP THAT CONTAINS ALL RECORDS OF AN EMPLOYEE FOR EVERY MONTH, Currently date is stored as string instead of date
     // Since UserId can be a string aswell, we have to use string for the first hashmap.
+    // Id -> (date, type) -> complete record record
     private HashMap<String, HashMap<Tuple<YearMonth, String>, EmployeeRecord>> employeeMap = new HashMap<>();
 
     public EmployeeHashMap() {
     }
 
-    private EmployeeRecord getEmployeeRecord(String id, Tuple<YearMonth, String> dateAndWageType) {
-        return employeeMap.get(id).get(dateAndWageType);
+    public EmployeeRecord getEmployeeRecord(String id, YearMonth date, String wageType) {
+        return employeeMap.get(id).get(tuple(date, wageType));
     }
 
     public EmployeeRecord getEmployeeRecord(EmployeeRecord employeeRecord) {
-        return getEmployeeRecord(employeeRecord.userId, tuple(employeeRecord.payPeriod, employeeRecord.wageType));
+        return getEmployeeRecord(employeeRecord.userId, employeeRecord.payPeriod, employeeRecord.wageType);
     }
 
-    private HashMap<Tuple<YearMonth, String>, EmployeeRecord> getAllRecordsOfEmployee(String id) {
+    public HashMap<Tuple<YearMonth, String>, EmployeeRecord> getAllRecordsOfEmployee(String id) {
         return employeeMap.get(id);
     }
 
     public HashMap<Tuple<YearMonth, String>, EmployeeRecord> getAllRecordsOfEmployee(EmployeeRecord employeeRecord) {
         return getAllRecordsOfEmployee(employeeRecord.userId);
+    }
+
+    public List<String> getAllEmployeeIds() {
+        return new ArrayList<>(employeeMap.keySet());
     }
 
     private void putEmployeeRecord(String id, YearMonth date, String wageType, EmployeeRecord employeeRecord) {

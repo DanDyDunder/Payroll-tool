@@ -15,6 +15,5 @@ public class ComparisonMapJson {
     @Override
     public String toString() {
         return String.format("External name: %s\nLegacy value: %s\nNew value: %s", externalName, cust_legacy, cust_new);
-
     }
 }

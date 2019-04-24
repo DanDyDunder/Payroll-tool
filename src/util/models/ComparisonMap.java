@@ -1,6 +1,7 @@
 package util.models;
 
 import java.util.HashMap;
+import java.util.List;
 
 // In the maps, the keys are source-fields, wheras values are target-fields
 public class ComparisonMap implements IComparisonMap{
@@ -9,6 +10,10 @@ public class ComparisonMap implements IComparisonMap{
     private HashMap<String, String> companyCodeMap = new HashMap<>();
 
     public ComparisonMap() {
+    }
+
+    public ComparisonMap(List<ComparisonMapRecord> records) {
+        putManyComparisonMappings(records);
     }
 
     public String getPayTypeMapping(String payTypeMapping) {
