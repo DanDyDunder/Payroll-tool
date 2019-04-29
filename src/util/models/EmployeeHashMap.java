@@ -10,9 +10,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// EmployeeHashMap is inteded to contain every EmployeeRecord for a run, that is either from the source or target results
+// The records are sorted by Id firstly, then by date and paytype, thus having a unique spot for every record
+// Tested and works correctly
 public class EmployeeHashMap implements IRecordsStructure {
-    // Since UserId can be a string aswell, we have to use string for the first hashmap.
-    // Id -> (date, type) -> complete record record
     private HashMap<String, HashMap<Tuple<YearMonth, String>, EmployeeRecord>> employeeMap = new HashMap<>();
 
     public EmployeeHashMap() {

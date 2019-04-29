@@ -9,22 +9,23 @@ import java.util.Map;
 
 public class Comparer {
     // A list, that contains a tuple of a source EHM and a target EHM for every run.
-    private List<Tuple<EmployeeHashMap, EmployeeHashMap>> recordsPerRun = new ArrayList<>();
-    private ComparisonMap comparisonMap;
+    private List<Tuple<IRecordsStructure, IRecordsStructure>> recordsPerRun = new ArrayList<>();
+    private IComparisonMap comparisonMap;
     private int runNumberIndex;
     private HashMap<Integer, Integer> runNumToIndex;
 
-    public Comparer(List<EmployeeRecord> records, ComparisonMap comparisonMap) {
+    public Comparer(List<EmployeeRecord> records, IComparisonMap comparisonMap) {
         this.comparisonMap = comparisonMap;
         runNumToIndex = new HashMap<>();
         init(records);
     }
 
+    // Split every record inserted into runs, and then a source and a target map, when finalized, we have sorted every record
     public void init(List<EmployeeRecord> records) {
         for (EmployeeRecord record:records) {
             int index = runNumberToIndex(record.runNumber);
             if (runNumberIndex > recordsPerRun.size()) recordsPerRun.add(new Tuple<>(new EmployeeHashMap(), new EmployeeHashMap()));
-            Tuple<EmployeeHashMap, EmployeeHashMap> tuple = recordsPerRun.get(index);
+            Tuple<IRecordsStructure, IRecordsStructure> tuple = recordsPerRun.get(index);
             switch (record.sourceTarget) {
                 case SOURCE:
                     tuple.item1.putEmployeeRecord(record);
@@ -36,16 +37,13 @@ public class Comparer {
         }
     }
 
-    private int runNumberToIndex(int runNumber) {
-        if (!runNumToIndex.containsKey(runNumber)) runNumToIndex.put(runNumber, runNumberIndex++);
-        return runNumToIndex.get(runNumber);
-    }
-
-    public Tuple<List<ComparisonResult>, KPI> generateComparisonResults(Tuple<EmployeeHashMap, EmployeeHashMap> run) {
+    // Generate all ComparisonResults for a run, and the attached KPI for that run.
+    // For every sourceId, find the matching targetId, gain relevant information from the records, and store it in a ComparisonResult
+    public Tuple<List<ComparisonResult>, KPI> generateComparisonResults(Tuple<IRecordsStructure, IRecordsStructure> run) {
         List<ComparisonResult> finalResults = new ArrayList<>();
         KPI currentKPI = new KPI();
-        EmployeeHashMap source = run.item1;
-        EmployeeHashMap target = run.item2;
+        IRecordsStructure source = run.item1;
+        IRecordsStructure target = run.item2;
         List<String> allIds = source.getAllEmployeeIds();
         for (String sourceId : allIds) {
             String targetId = comparisonMap.getIdMapping(sourceId);
@@ -76,11 +74,18 @@ public class Comparer {
                 }
             }
         }
-        finalizeKPI(currentKPI, source, target);
+        calculateKPIs(currentKPI, source, target);
         return new Tuple(finalResults, currentKPI);
     }
 
-    private void finalizeKPI(KPI currentKPI, EmployeeHashMap source, EmployeeHashMap target) {
+    // Utility method, to navigate the list of records for every run.
+    private int runNumberToIndex(int runNumber) {
+        if (!runNumToIndex.containsKey(runNumber)) runNumToIndex.put(runNumber, runNumberIndex++);
+        return runNumToIndex.get(runNumber);
+    }
+
+    // Generate KPI parameters throughout the generateComparisonResults()
+    private void calculateKPIs(KPI currentKPI, IRecordsStructure source, IRecordsStructure target) {
         int redundancies = 0;
         int missing = 0;
         int employeeCountDifference = target.countEmployees()-source.countEmployees();
@@ -102,6 +107,7 @@ public class Comparer {
         else kpi.deviations++;
     }
 
+    // Creates ComparisonResult at the end of a match between a sourceId and targetId
     public ComparisonResult generateCorrectComparisonResult(int runNumber, String idSource, String idTarget, YearMonth date, double amtpernumSource, double amtpernumTarget,
                                                             String payTypeSource, String payTypeTarget) {
         double deviation = amtpernumTarget-amtpernumSource;
@@ -119,7 +125,7 @@ public class Comparer {
         return comparisonResult;
     }
 
-    public List<Tuple<EmployeeHashMap, EmployeeHashMap>> getRecordsPerRun() {
+    public List<Tuple<IRecordsStructure, IRecordsStructure>> getRecordsPerRun() {
         return recordsPerRun;
     }
 }

@@ -11,20 +11,29 @@ import util.models.KPI;
 import java.lang.reflect.Type;
 import java.util.List;
 
+// JSONParser, uses moshi for parsing
+// Parses by inlining what class that is to be used for a model, if the class is not going to be directly mapped
+// to a model, we use an adapter class, that processes the JSON-data, into data we can use for comparisons.
 public class JSONParser {
 
+    // Removes the format imposed by SuccessFactors to properly parse the JSON through moshi
     public static String SFJSONToProperJSON (String SFJson) {
         return SFJson.substring(SFJson.indexOf('['), SFJson.indexOf(']')+1);
     }
 
+    // Creates a moshi-object, that parses ComparisonMap json to our custom ComparisonMapRecord class.
     public static List<ComparisonMapRecord> parseComparisonMap(String input) {
         String json;
         List<ComparisonMapRecord> maps = null;
         try {
+            // During instatiation, we tell moshi that we want to process the JSON data through our custom adapter
             Moshi moshi = new Moshi.Builder().add(new ComparisonMapJsonAdapter()).build();
             json = SFJSONToProperJSON(input);
+            // Specifies that we are parsing multiple objects, and that we want those objects returned into a list.
             Type type = Types.newParameterizedType(List.class, ComparisonMapRecord.class);
+            // Get our results through the adapter
             JsonAdapter<List<ComparisonMapRecord>> adapter = moshi.adapter(type);
+            // The final results
             maps = adapter.fromJson(json);
 
             return maps;
@@ -80,6 +89,7 @@ public class JSONParser {
         return results;
     }
 
+    // Takes a list of ComparisonResults and turns them into JSON that we can upsert into our model
     public static String runResultToJson(List<ComparisonResult> cResults) {
         String jsonResult = "";
         try {

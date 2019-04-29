@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 // In the maps, the keys are source-fields, wheras values are target-fields
+// Goes from source to target, contains every kind of mapping in a mapping table from SuccessFactors
 public class ComparisonMap implements IComparisonMap{
     private HashMap<String, String> idMap = new HashMap<>();
     private HashMap<String, String> payTypeMap = new HashMap<>();

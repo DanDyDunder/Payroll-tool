@@ -47,19 +47,6 @@ public class SuccessFactors {
         createGetHeader("", headers);
     }
 
-    public static String json() {
-        return  "[\n" +
-                "{\n" +
-                " \"__metadata\": {\n" +
-                " \"uri\": \"https://apisalesdemo2.successfactors.eu/odata/v2/cust_gp_app_prc_cmt(6000000L)\"\n" +
-                " },\n" +
-                " \"externalName\": \"Pay Component\",\n" +
-                " \"cust_legacy\": \"1200\",\n" +
-                " \"cust_new\": \"lmao\"\n" +
-                "}\n" +
-                "]";
-    }
-
 
     private static String getJsonFromHttpResponse(CloseableHttpResponse ajaxResponse) {
         HttpEntity ajaxEntity = ajaxResponse.getEntity();
@@ -105,10 +92,10 @@ public class SuccessFactors {
 
     }
 
+    // Upserts result, used to send batches of JSON-objects into the API.
     public static void PostResults(String results) {
         HashMap<String, String> headers = new HashMap<>();
         createPostHeader("", headers);
-
         CloseableHttpResponse ajaxResponse = Utils.httpPost("https://apisalesdemo2.successfactors.eu/odata/v2/upsert", results, headers);
 
         try {

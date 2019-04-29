@@ -1,7 +1,7 @@
 package util.models.JSON;
 
 public class MetaData {
-    //TODO Modify, so it works generically
+    // Used for upserting, acts as an identifier.
     public final String uri;
 
     public MetaData(String runNumber, String id, String period, String wagetype) {
