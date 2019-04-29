@@ -28,7 +28,7 @@ public class ComparisonMapRecord {
     }
 
     public enum MapType {
-        CompanyCode, PayType, UserID;
+        CompanyCode, PayType, UserID
     }
 
     @Override

@@ -42,7 +42,7 @@ public class EmployeeRecord {
     }
 
     public enum SourceTarget {
-        SOURCE, TARGET, ERROR;
+        SOURCE, TARGET, ERROR
     }
 
     @Override

@@ -1,14 +1,12 @@
 package util;
 
 import util.models.ComparisonResult;
-import util.models.JSON.ComparisonMapJsonAdapter;
-import util.models.JSON.EmployeeJsonAdapter;
+import util.models.JSON.*;
 import util.models.EmployeeRecord;
 import util.models.ComparisonMapRecord;
 
 import com.squareup.moshi.*;
-import util.models.JSON.RunResultJson;
-import util.models.JSON.RunResultJsonAdapter;
+import util.models.KPI;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -46,45 +44,65 @@ public class JSONParser {
             JsonAdapter<List<EmployeeRecord>> adapter = moshi.adapter(type);
             employeeRecords = adapter.fromJson(json);
 
-            for (EmployeeRecord employeeRecord : employeeRecords) {
-                System.out.println(employeeRecord);
-            }
-            System.out.println("THIS IS THE AMOUNT: " + employeeRecords.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
         return employeeRecords;
     }
 
-    public static void parseRunResult(String input) {
+    public static List<RunResultJson> parseRunResult(String input) {
         String json;
+        List<RunResultJson> results = null;
         try {
             Moshi moshi = new Moshi.Builder().build();
             json = SFJSONToProperJSON(input);
             Type type = Types.newParameterizedType(List.class, RunResultJson.class);
             JsonAdapter<List<RunResultJson>> adapter = moshi.adapter(type);
-            List<RunResultJson> results = adapter.fromJson(json);
-
-            for (RunResultJson result : results) {
-                System.out.println(result);
-            }
-
-            System.out.println("THIS IS THE AMOUNT: " + results.size());
+            results = adapter.fromJson(json);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return results;
     }
 
-    public static void runResultToJson(List<ComparisonResult> cResults) {
+    public static List<KPI> parseKPIs(String input) {
+        String json;
+        List<KPI> results = null;
+        try {
+            Moshi moshi = new Moshi.Builder().add(new KpiJsonAdapter()).build();
+            json = SFJSONToProperJSON(input);
+            Type type = Types.newParameterizedType(List.class, KPI.class);
+            JsonAdapter<List<KPI>> adapter = moshi.adapter(type);
+            results = adapter.fromJson(json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    public static String runResultToJson(List<ComparisonResult> cResults) {
+        String jsonResult = "";
         try {
             Moshi moshi = new Moshi.Builder().add(new RunResultJsonAdapter()).build();
             Type type = Types.newParameterizedType(List.class, ComparisonResult.class);
             JsonAdapter<List<ComparisonResult>> adapter = moshi.adapter(type);
-            String result = adapter.toJson(cResults);
-
-            System.out.println(result);
+            jsonResult = adapter.toJson(cResults);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return jsonResult;
+    }
+
+    public static String kpiToJson(List<KPI> kpis) {
+        String jsonResult = "";
+        try {
+            Moshi moshi = new Moshi.Builder().add(new KpiJsonAdapter()).build();
+            Type type = Types.newParameterizedType(List.class, KPI.class);
+            JsonAdapter<List<KPI>> adapter = moshi.adapter(type);
+            jsonResult = adapter.toJson(kpis);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonResult;
     }
 }

@@ -38,11 +38,28 @@ public class SuccessFactors {
         headers.put("Authorization", "Basic c2ZhZG1pbkBTRlBBUlQwMzE3MDQ6cGFydDE4MDJEQzI=");
     }
 
-    private static void createHeader(String tenant, HashMap<String, String> headers) {
+    private static void createGetHeader(String tenant, HashMap<String, String> headers) {
         headers.put("Accept", "application/json");
         headers.put("Content-Type", "application/json;charset=UTF-8");
         createSFBasicAuthHeader(tenant, headers);
     }
+    private static void createPostHeader(String tenant, HashMap<String, String> headers) {
+        createGetHeader("", headers);
+    }
+
+    public static String json() {
+        return  "[\n" +
+                "{\n" +
+                " \"__metadata\": {\n" +
+                " \"uri\": \"https://apisalesdemo2.successfactors.eu/odata/v2/cust_gp_app_prc_cmt(6000000L)\"\n" +
+                " },\n" +
+                " \"externalName\": \"Pay Component\",\n" +
+                " \"cust_legacy\": \"1200\",\n" +
+                " \"cust_new\": \"lmao\"\n" +
+                "}\n" +
+                "]";
+    }
+
 
     private static String getJsonFromHttpResponse(CloseableHttpResponse ajaxResponse) {
         HttpEntity ajaxEntity = ajaxResponse.getEntity();
@@ -79,7 +96,7 @@ public class SuccessFactors {
         //String urlSuffix = url.replace(" ", "%20");
 
         HashMap<String, String> headers = new HashMap<>();
-        createHeader(tenant, headers);
+        createGetHeader(tenant, headers);
 
         CloseableHttpResponse ajaxResponse = Utils.httpGet(url, headers);
 
@@ -88,5 +105,16 @@ public class SuccessFactors {
 
     }
 
+    public static void PostResults(String results) {
+        HashMap<String, String> headers = new HashMap<>();
+        createPostHeader("", headers);
 
+        CloseableHttpResponse ajaxResponse = Utils.httpPost("https://apisalesdemo2.successfactors.eu/odata/v2/upsert", results, headers);
+
+        try {
+            System.out.println(new String(ajaxResponse.getEntity().getContent().readAllBytes()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

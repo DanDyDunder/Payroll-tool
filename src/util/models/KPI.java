@@ -1,6 +1,7 @@
 package util.models;
 
 public class KPI {
+    public int runNumber;
     public int total;
     public int matches;
     public double matchesPercentage;

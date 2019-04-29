@@ -3,6 +3,7 @@ package util.models.JSON;
 import java.time.YearMonth;
 
 public class RunResultJson {
+    public final MetaData __metadata;
     public final String externalName;
     public final String cust_userIdSource;
     public final String cust_userIdTarget;
@@ -29,6 +30,7 @@ public class RunResultJson {
         this.cust_wageTypeSource = cust_wageTypeSource;
         this.cust_wageTypeTarget = cust_wageTypeTarget;
         this.cust_status = cust_status;
+        __metadata = new MetaData(externalName, cust_userIdSource, cust_payPeriod, cust_wageTypeSource);
     }
 
     @Override

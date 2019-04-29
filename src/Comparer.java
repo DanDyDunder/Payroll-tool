@@ -11,18 +11,19 @@ public class Comparer {
     // A list, that contains a tuple of a source EHM and a target EHM for every run.
     private List<Tuple<EmployeeHashMap, EmployeeHashMap>> recordsPerRun = new ArrayList<>();
     private ComparisonMap comparisonMap;
-    private int runNumber;
+    private int runNumberIndex;
+    private HashMap<Integer, Integer> runNumToIndex;
 
     public Comparer(List<EmployeeRecord> records, ComparisonMap comparisonMap) {
         this.comparisonMap = comparisonMap;
+        runNumToIndex = new HashMap<>();
         init(records);
     }
 
     public void init(List<EmployeeRecord> records) {
         for (EmployeeRecord record:records) {
-            runNumber = record.runNumber;
-            int index = runNumber-1;
-            if (runNumber > recordsPerRun.size()) recordsPerRun.add(new Tuple<>(new EmployeeHashMap(), new EmployeeHashMap()));
+            int index = runNumberToIndex(record.runNumber);
+            if (runNumberIndex > recordsPerRun.size()) recordsPerRun.add(new Tuple<>(new EmployeeHashMap(), new EmployeeHashMap()));
             Tuple<EmployeeHashMap, EmployeeHashMap> tuple = recordsPerRun.get(index);
             switch (record.sourceTarget) {
                 case SOURCE:
@@ -35,6 +36,11 @@ public class Comparer {
         }
     }
 
+    private int runNumberToIndex(int runNumber) {
+        if (!runNumToIndex.containsKey(runNumber)) runNumToIndex.put(runNumber, runNumberIndex++);
+        return runNumToIndex.get(runNumber);
+    }
+
     public Tuple<List<ComparisonResult>, KPI> generateComparisonResults(Tuple<EmployeeHashMap, EmployeeHashMap> run) {
         List<ComparisonResult> finalResults = new ArrayList<>();
         KPI currentKPI = new KPI();
@@ -42,30 +48,32 @@ public class Comparer {
         EmployeeHashMap target = run.item2;
         List<String> allIds = source.getAllEmployeeIds();
         for (String sourceId : allIds) {
-            //TODO If it doesnt exist in the map, use source value
             String targetId = comparisonMap.getIdMapping(sourceId);
             HashMap<Tuple<YearMonth, String>, EmployeeRecord> recordsOfEmployee = source.getAllRecordsOfEmployee(sourceId);
 
             for (Map.Entry<Tuple<YearMonth, String>, EmployeeRecord> employee : recordsOfEmployee.entrySet()) {
+                ComparisonResult cResult;
                 EmployeeRecord sourceRecord = employee.getValue();
+                int runNumber = sourceRecord.runNumber;
+                currentKPI.runNumber = runNumber;
                 YearMonth date = sourceRecord.payPeriod;
                 String payTypeSource = sourceRecord.wageType;
                 double amtpernumSource = sourceRecord.amtpernum;
-                //TODO If it doesnt exist in the map, use source value
                 String payTypeTarget = comparisonMap.getPayTypeMapping(payTypeSource);
-                // Add null-check
                 EmployeeRecord targetRecord = target.getEmployeeRecord(targetId, date, payTypeTarget);
                 if (targetRecord == null) {
                     currentKPI.missing++;
-                    //Make a runResultAnyways
+                    cResult = generateCorrectComparisonResult(runNumber, sourceId, "MISSING", date, amtpernumSource, -1, payTypeSource, "MISSING");
+                    finalResults.add(cResult);
                     continue;
-                }
-                double amtpernumTarget = targetRecord.amtpernum;
+                } else {
+                    double amtpernumTarget = targetRecord.amtpernum;
 
-                ComparisonResult cResult = generateCorrectComparisonResult(1, sourceId, targetId, date, amtpernumSource, amtpernumTarget,
-                        payTypeSource, payTypeTarget);
-                addMatchToKPI(currentKPI, cResult.status);
-                finalResults.add(cResult);
+                    cResult = generateCorrectComparisonResult(runNumber, sourceId, targetId, date, amtpernumSource, amtpernumTarget,
+                            payTypeSource, payTypeTarget);
+                    addMatchToKPI(currentKPI, cResult.status);
+                    finalResults.add(cResult);
+                }
             }
         }
         finalizeKPI(currentKPI, source, target);

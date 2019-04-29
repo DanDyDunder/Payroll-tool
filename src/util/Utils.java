@@ -3,6 +3,8 @@ package util;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
@@ -57,9 +59,61 @@ public class Utils {
         return ajaxResponse;
     }
 
+    public static CloseableHttpResponse httpPost(String url, String payload, HashMap<String, String> headers) {
+
+        int attempt = 0;
+        boolean isSuccess = false;
+        CloseableHttpResponse ajaxResponse = null;
+        while (attempt < 3 && !isSuccess) {
+            attempt++;
+            try {
+                CloseableHttpClient httpClient = HttpClients.createDefault();
+
+                // Retrieves the URL for the token endpoint
+                HttpPost httpPost = new HttpPost(url);
+                if (headers != null) {
+                    addPostHeaders(httpPost, headers);
+                }
+
+                // Turn the JSON object to a String and make it a String entity for the POST
+                // request
+                String json = payload;
+                StringEntity entity = new StringEntity(json, "UTF-8");
+
+                entity.setContentType("application/json;charset=UTF-8");
+                httpPost.setEntity(entity);
+
+                // Execute request
+                ajaxResponse = httpClient.execute(httpPost);
+
+                int statusCode = ajaxResponse.getStatusLine().getStatusCode();
+
+                if ((statusCode == 200 || statusCode == 201)) {
+                    isSuccess = true;
+                }
+
+            } catch (ClientProtocolException ex) {
+                LOG.error(ex.getMessage());
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                LOG.error(ex.getMessage());
+                ex.printStackTrace();
+
+            }
+
+        }
+        return ajaxResponse;
+    }
+
     private static void addGetHeaders(HttpGet httpGet, HashMap<String, String> headers) {
         for (Map.Entry<String, String> entry : headers.entrySet()) {
             httpGet.addHeader(entry.getKey(), entry.getValue());
+        }
+    }
+
+    private static void addPostHeaders(HttpPost httpPost, HashMap<String, String> headers) {
+        for (Map.Entry<String, String> entry : headers.entrySet()) {
+            httpPost.addHeader(entry.getKey(), entry.getValue());
         }
     }
 
